@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>2048</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
@@ -72,6 +72,8 @@
 
       </div>
     </div>
+
+    <p id="agent-status" class="game-explanation"><strong class="important">Agent:</strong> starting...</p>
 
     <p class="game-explanation">
       <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>

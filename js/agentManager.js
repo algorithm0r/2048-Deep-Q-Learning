@@ -5,7 +5,8 @@ class AgentManager {
         this.agent = new Agent(gameManager);
         this.moveCount = 0;
 
-        this.resetData
+        this.recentScores = [];
+        this.resetData();
     };
 
     gatherData() {
@@ -25,6 +26,14 @@ class AgentManager {
         this.eightyoneninetytwo = false;
 
         this.numPlayed++;
+
+        this.recentScores.push(this.gameManager.score);
+        if (this.recentScores.length > 20) this.recentScores.shift();
+        const avg = this.recentScores.reduce((a, b) => a + b, 0) / this.recentScores.length;
+        const status = document.getElementById("agent-status");
+        if (status) status.innerHTML = "<strong class=\"important\">Agent:</strong> game " + this.numPlayed +
+            " · average of last " + this.recentScores.length + ": " + Math.round(avg) +
+            " · best: " + this.maxScore + " · exploration rate: " + this.agent.epsilon.toFixed(2);
     }
 
     printRunLog(delay) {

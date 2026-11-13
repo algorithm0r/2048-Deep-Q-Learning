@@ -3,4 +3,5 @@ window.requestAnimationFrame(function () {
     var gm = new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
     var agent = new AgentManager(gm);
     gm.agent = agent;
+    gm.actuate(); // start the agent playing without waiting for a keypress
 });
